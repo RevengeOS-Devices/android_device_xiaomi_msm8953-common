@@ -147,14 +147,11 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdMetaData.system \
     libgenlock \
-    libtinyxml \
-    vendor.display.config@1.0 \
-    vendor.display.config@1.1 \
-    vendor.display.config@1.0_vendor \
-    vendor.display.config@1.1_vendor
-	
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+    libtinyxml
+
+# Doze mode
+PRODUCT_PACKAGES += \
+    XiaomiDoze
 
 # DRM
 PRODUCT_PACKAGES += \
