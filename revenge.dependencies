@@ -9,6 +9,6 @@
     "remote"     : "github",
     "repository" : "RevengeOS-Devices/android_vendor_xiaomi_tissot",
     "target_path": "vendor/xiaomi",
-    "revision" : "r9.0-caf-old"
+    "revision" : "r9.0-caf"
   }
 ]
