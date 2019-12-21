@@ -175,6 +175,9 @@ TARGET_PER_MGR_ENABLED := true
 # Power
 #TARGET_USES_INTERACTION_BOOST := true
 
+# SurfaceFlinger
+TARGET_USE_AOSP_SURFACEFLINGER := true
+
 # Qualcomm
 BOARD_USES_QCOM_HARDWARE := true
 
