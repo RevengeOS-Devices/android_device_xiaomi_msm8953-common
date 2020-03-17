@@ -1,0 +1,14 @@
+android_app {
+    name: "XiaomiParts",
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+    ],
+
+    srcs: ["src/**/*.java"],
+
+    certificate: "platform",
+    privileged: true,
+    platform_apis: true,
+}
