@@ -38,12 +38,17 @@
         android:key="display"
         android:title="@string/display_title">
 
-        <SwitchPreference
-            android:key="fps_info"
-            android:icon="@drawable/ic_fps_info"
-            android:title="@string/fps_info_title"
-            android:summary="@string/fps_info_summary"
-            android:persistent="true" />
+        <Preference
+            android:key="device_kcal"
+            android:persistent="false"
+            android:icon="@drawable/ic_kcal"
+            android:title="@string/device_kcal_title"
+            android:summary="@string/device_kcal_summary" >
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.xiaomi.parts.kcal.KCalSettingsActivity"
+                android:targetPackage="com.xiaomi.parts.kcal"/>
+        </Preference>
 
         <PreferenceScreen
             android:key="ambient_display_gestures"
@@ -53,4 +58,16 @@
             android:title="@string/ambient_display_gestures_title" />
 
     </PreferenceCategory>
+
+    <!--PreferenceCategory
+        android:key="torch"
+        android:title="@string/torch_title">
+        <com.xiaomi.parts.preferences.CustomSeekBarPreference
+            android:defaultValue="100"
+            android:key="torch_brightness"
+            android:max="255"
+            app:min="1"
+            android:icon="@drawable/ic_torch"
+            android:title="@string/torch_brightness_title" />
+    </PreferenceCategory-->
 </PreferenceScreen>
