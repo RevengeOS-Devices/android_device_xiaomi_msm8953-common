@@ -1,25 +1,41 @@
 package com.xiaomi.parts;
 
-final class DiracUtils {
 
-    private final DiracSound mDiracSound;
+import java.lang.IllegalArgumentException;
+import android.content.Context;
 
-    DiracUtils() {
+public final class DiracUtils {
+
+public DiracSound mDiracSound;
+public static DiracUtils mInstance;
+public Context mContext;
+
+    public static DiracUtils getInstance() {
+        if (mInstance == null) {
+            throw new IllegalArgumentException("Trying to get instance without initializing!");
+        }
+        return mInstance;
+    }
+
+
+    public DiracUtils(final Context context) {
+    mContext = context;
         mDiracSound = new DiracSound(0, 0);
     }
 
-    void onBootCompleted() {
+
+   public void onBootCompleted() {
         setEnabled(mDiracSound.getMusic() == 1);
         mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
         setLevel(getLevel());
     }
 
-    void setEnabled(boolean enable) {
+   public  void setEnabled(boolean enable) {
         mDiracSound.setEnabled(enable);
         mDiracSound.setMusic(enable ? 1 : 0);
     }
 
-    boolean isDiracEnabled() {
+    public boolean isDiracEnabled() {
         return mDiracSound.getMusic() == 1;
     }
 

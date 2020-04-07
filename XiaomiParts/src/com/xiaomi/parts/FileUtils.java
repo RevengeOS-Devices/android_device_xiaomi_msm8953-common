@@ -26,7 +26,7 @@ public class FileUtils {
             }
             try {
                 FileOutputStream fos = new FileOutputStream(new File(path));
-                fos.write((value ? "Y" : "N").getBytes());
+                fos.write((value ? "1" : "0").getBytes());
                 fos.flush();
                 fos.close();
             } catch (IOException e) {
@@ -106,10 +106,10 @@ public class FileUtils {
         return line;
     }
 
-    static boolean getFileValueAsBoolean(String filename, boolean defValue) {
+    public static boolean getFileValueAsBoolean(String filename, boolean defValue) {
         String fileValue = readLine(filename);
         if (fileValue != null) {
-            return !fileValue.equals("N");
+            return !fileValue.equals("0");
         }
         return defValue;
     }

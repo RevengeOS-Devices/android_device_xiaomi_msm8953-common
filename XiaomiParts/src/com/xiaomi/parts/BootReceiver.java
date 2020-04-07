@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.provider.Settings;
 
 import com.xiaomi.parts.kcal.Utils;
-import com.xiaomi.parts.ambient.SensorsDozeService;
+import com.xiaomi.parts.ambient.DozeService;
 
 public class BootReceiver extends BroadcastReceiver implements Utils {
 
@@ -52,10 +52,13 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         //        Settings.Secure.getInt(context.getContentResolver(),
         //                DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
 
+        FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
+                DeviceSettings.PREF_USB_FASTCHARGE, 0));
+
 	//Dirac
         context.startService(new Intent(context, DiracService.class));
 	//Ambient
-        context.startService(new Intent(context, SensorsDozeService.class));
+        context.startService(new Intent(context, DozeService.class));
 
     }
 }

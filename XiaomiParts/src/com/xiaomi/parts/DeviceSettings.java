@@ -8,9 +8,10 @@ import android.os.Bundle;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragment;
+import androidx.preference.SwitchPreference;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
-import com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity;
+import com.xiaomi.parts.ambient.DozeSettingsActivity;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 import com.xiaomi.parts.preferences.VibrationSeekBarPreference;
@@ -37,6 +38,8 @@ public class DeviceSettings extends PreferenceFragment implements
     //private static final String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom," +
     //        "spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_1/max_brightness";
 
+    public static final String PREF_USB_FASTCHARGE = "fastcharge";
+    public static final String USB_FASTCHARGE_PATH = "/sys/kernel/fast_charge/force_fast_charge";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -73,6 +76,11 @@ public class DeviceSettings extends PreferenceFragment implements
 
         PreferenceCategory displayCategory = (PreferenceCategory) findPreference(CATEGORY_DISPLAY);
 
+        SwitchPreference usbfastCharger = (SwitchPreference) findPreference(PREF_USB_FASTCHARGE);
+        usbfastCharger.setEnabled(FileUtils.fileWritable(USB_FASTCHARGE_PATH));
+        usbfastCharger.setChecked(FileUtils.getFileValueAsBoolean(USB_FASTCHARGE_PATH, true));
+        usbfastCharger.setOnPreferenceChangeListener(this);
+
         Preference kcal = findPreference(PREF_DEVICE_KCAL);
         kcal.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
@@ -82,7 +90,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
         Preference ambientDisplay = findPreference(AMBIENT_DISPLAY);
         ambientDisplay.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getContext(), AmbientGesturePreferenceActivity.class);
+            Intent intent = new Intent(getActivity().getApplicationContext(), DozeSettingsActivity.class);
             startActivity(intent);
             return true;
         });
@@ -122,6 +130,10 @@ public class DeviceSettings extends PreferenceFragment implements
                     getContext().startService(new Intent(getContext(), DiracService.class));
                     DiracService.sDiracUtils.setLevel(String.valueOf(value));
                 }
+                break;
+
+            case PREF_USB_FASTCHARGE:
+                FileUtils.setValue(USB_FASTCHARGE_PATH, (boolean) value);
                 break;
 
             default:
