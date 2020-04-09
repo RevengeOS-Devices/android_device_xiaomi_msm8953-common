@@ -18,7 +18,7 @@ public class DiracService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        sDiracUtils = new DiracUtils(getApplicationContext());
+        sDiracUtils = new DiracUtils();
         sDiracUtils.onBootCompleted();
         Log.d(TAG, "Service started");
         return START_STICKY;
