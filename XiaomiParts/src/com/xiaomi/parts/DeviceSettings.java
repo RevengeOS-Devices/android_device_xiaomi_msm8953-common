@@ -11,7 +11,7 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
-import com.xiaomi.parts.ambient.DozeSettingsActivity;
+import com.xiaomi.parts.ambient.AmbientGesturePreferenceActivity;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
 import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
 import com.xiaomi.parts.preferences.VibrationSeekBarPreference;
@@ -90,7 +90,7 @@ public class DeviceSettings extends PreferenceFragment implements
 
         Preference ambientDisplay = findPreference(AMBIENT_DISPLAY);
         ambientDisplay.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), DozeSettingsActivity.class);
+            Intent intent = new Intent(getContext(), AmbientGesturePreferenceActivity.class);
             startActivity(intent);
             return true;
         });
