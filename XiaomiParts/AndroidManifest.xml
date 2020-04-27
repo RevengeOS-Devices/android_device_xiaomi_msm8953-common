@@ -106,11 +106,11 @@
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+
 	 <service	
             android:name=".FPSInfoService"	
             android:exported="false">	
         </service>
-	
         <service	
             android:name=".FPSTileService"	
             android:icon="@drawable/ic_fps_info"	
