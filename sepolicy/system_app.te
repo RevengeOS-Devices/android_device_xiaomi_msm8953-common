@@ -1,0 +1,7 @@
+# FM radio needs to set fm properties
+set_prop(system_app, fm_prop) 
+allow system_app sysfs_zram:dir search;
+allow system_app sysfs_zram:file read;
+allow system_app wificond:binder call;
+
+

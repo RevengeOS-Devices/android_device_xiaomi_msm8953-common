@@ -1,0 +1,1 @@
+allow cameraserver persist_camera_prop:file {read open getattr write};

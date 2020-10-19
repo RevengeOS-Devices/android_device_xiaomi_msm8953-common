@@ -1,1 +1,1 @@
-set_prop(netmgrd, vendor_xlat_prop)
+set_prop(netmgrd, vendor_xlat_prop, vendor_default_prop)
