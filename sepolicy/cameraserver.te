@@ -1,1 +1,1 @@
-allow cameraserver persist_camera_prop:file {read open getattr write};
+allow cameraserver vendor_persist_camera_prop:file {read open getattr};

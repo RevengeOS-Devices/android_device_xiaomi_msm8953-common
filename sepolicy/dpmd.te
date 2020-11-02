@@ -1,1 +1,1 @@
-allow dpmd ctl_stop_prop:property_service set;
+allow vendor_dpmd ctl_stop_prop:property_service set;
