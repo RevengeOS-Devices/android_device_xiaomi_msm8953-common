@@ -1,5 +1,6 @@
 subdirs = [
     "consumerir",
     "light",
+    "touch",
     "usb",
 ]
