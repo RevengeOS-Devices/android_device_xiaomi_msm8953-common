@@ -5,3 +5,6 @@ allow init hwservicemanager:binder transfer;
 
 allow init hwservicemanager:binder call;
 allow init sysfs_leds:lnk_file read;
+
+# Allow init to write to sysfs_battery_supply
+allow init sysfs_battery_supply:file { setattr };
