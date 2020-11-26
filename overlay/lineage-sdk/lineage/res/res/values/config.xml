@@ -51,4 +51,8 @@
             2 - Supported with variable brightness control
     -->
     <integer name="config_deviceSupportsButtonBrightnessControl">1</integer>
+
+    <!-- For example, a device with notification and battery lights that supports
+         pulsating and RGB control would set this config to 75. -->
+    <integer name="config_deviceLightCapabilities">235</integer>
 </resources>
