@@ -12,3 +12,4 @@ dontaudit qti_init_shell self:capability { dac_override dac_read_search };
 allow qti_init_shell system_data_file:dir { open read remove_name rmdir };
 allow qti_init_shell system_data_file:file getattr;
 allow qti_init_shell ctl_start_prop:property_service set;
+allow qti_init_shell persist_file:dir { search };
