@@ -1,0 +1,1 @@
+allow installd unlabeled:dir { create };
