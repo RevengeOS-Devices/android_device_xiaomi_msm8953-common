@@ -1,0 +1,3 @@
+pocket                                       u:object_r:pocket_service:s0
+lineagehardware                               u:object_r:lineagehardware_service:s0
+lineagelivedisplay                  u:object_r:lineagelivedisplay_service:s0
