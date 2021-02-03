@@ -1,3 +1,2 @@
-allow system_server pocket_service:service_manager add;
 allow system_server lineagehardware_service:service_manager add;
 allow system_server lineagelivedisplay_service:service_manager add;
